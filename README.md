@@ -8,6 +8,6 @@ Using **Vanilla JavaScript** and **JQuerybold** for simple back-end functions.
 Just using regular **HTML5** and **CSS3** for designing the views.  
 
 
-Node JS: <link> https://www.nodejs.org  
-Express: <link> https://www.npmjs.com/package/express  
-EJS: <link> https://www.npmjs.com/package/ejs
+If you want to download or know more about Node JS and Node Package Manager(npm) you can check them out <link href= https://www.nodejs.org> here</link>.
+
+To learn more about the Express and EJS packages you can check those out at <link href="https://www.npmjs.com/package/express"> package/express </link> and <link href="https://www.npmjs.com/package/ejs"> package/ejs </link>.
