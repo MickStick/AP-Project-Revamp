@@ -1,11 +1,11 @@
 # AP-Project-Revamp
-Advanced Programming Project Redone as Web App  
+Advanced Programming Project Project 2016/17 SME2 Redone as a Web Application.  
 
-Using **bold** Node JS **bold** for Server-side functions with **bold** Express **bold** routing.  
+Using **Node JS** for Server-side functions with **Express** routing.  
 
-Using **bold** Vanilla JavaScript **bold** and **bold** JQuery **bold** for simple back-end functions.  
+Using **Vanilla JavaScript** and **JQuerybold** for simple back-end functions.  
 
-Just using regular **bold** HTML5 **bold** and **bold** CSS3 **bold** for designing the views.  
+Just using regular **HTML5** and **CSS3** for designing the views.  
 
 
 Node JS: <link> https://www.nodejs.org  
