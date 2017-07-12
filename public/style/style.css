@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(89, 171, 227, 0.6);
+    border-bottom: 0.5mm solid;
+    border-bottom-color: rgba(89, 171, 227, 0.3);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+header h2 {
+    float: left;
+    margin: 15px 0px 0px 25px;
+}
+
+body {
+    background-color: rgba(197, 239, 247, 0.8);
+}
+
+.main-view {
+    width: 100%;
+}
+
+.main-view form {
+    width: 500px;
+    height: 400px;
+    margin: auto;
+    position: relative;
+    top: 20vh;
+    outline: green dashed;
+}
+
+.main-view form>label {
+    font-size: 28px;
+    font-weight: 600px;
+    text-align: center;
+    width: 20%;
+    display: block;
+    margin: auto;
+    outline: red solid;
+}
+
+.main-view form table {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.main-view form table tr {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.main-view form table tr td {
+    width: 50%;
+    outline: blue solid;
+}
+
+.main-view form table label {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 22;
+}
+
+.main-view form table input {
+    width: 100%;
+    height: 28px;
+}
