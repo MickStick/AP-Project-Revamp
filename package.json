@@ -1,34 +1,35 @@
 {
-  "name": "ap-project-revamp",
-  "version": "1.0.0",
-  "description": "A redesign of the 2016/17 SEM2 Advanced Programming Project. Basically this will be a web app version of the previous desktop application. Using Node JS and Express as for server-side functions, vanilla Javascript back-end, HTML5 & CSS3 for front-end and ejs for templating. ",
-  "main": "app.js",
-  "scripts": {
-    "test": "node app"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MickStick/AP-Project-Revamp.git"
-  },
-  "keywords": [
-    "Node",
-    "JavaScript",
-    "HTML5",
-    "CSS3",
-    "Ejs",
-    "Express"
-  ],
-  "author": "Mikhail Rene Shaw",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MickStick/AP-Project-Revamp/issues"
-  },
-  "homepage": "https://github.com/MickStick/AP-Project-Revamp#readme",
-  "dependencies": {
-    "body-parser": "^1.17.2",
-    "cookie-parser": "^1.4.3",
-    "ejs": "^2.5.6",
-    "express": "^4.15.3",
-    "mongoose": "^4.11.1"
-  }
+    "name": "ap-project-revamp",
+    "version": "1.0.0",
+    "description": "A redesign of the 2016/17 SEM2 Advanced Programming Project. Basically this will be a web app version of the previous desktop application. Using Node JS and Express as for server-side functions, vanilla Javascript back-end, HTML5 & CSS3 for front-end and ejs for templating. ",
+    "node-main": "Server.js",
+    "main": "http://localhost:4444",
+    "scripts": {
+        "test": "node app"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MickStick/AP-Project-Revamp.git"
+    },
+    "keywords": [
+        "Node",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Ejs",
+        "Express"
+    ],
+    "author": "Mikhail Rene Shaw",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MickStick/AP-Project-Revamp/issues"
+    },
+    "homepage": "https://github.com/MickStick/AP-Project-Revamp#readme",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "cookie-parser": "^1.4.3",
+        "ejs": "^2.5.6",
+        "express": "^4.15.3",
+        "mongoose": "^4.11.1"
+    }
 }
