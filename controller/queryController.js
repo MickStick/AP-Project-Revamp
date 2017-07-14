@@ -12,23 +12,44 @@ mong.connect(url, {
 });
 
 var empSchema = new mong.Schema({
-    item: String
+    id: String,
+    fname: String,
+    lname: String,
+    email: String
+
 }); //Creating DB schema for employees
 
-var Emp = mong.model('Emp', empSchema); //Creating DB model for employees
+var Emp = mong.model('employees', empSchema); //Creating DB model for employees
 
 var studSchema = new mong.Schema({
-    item: String
+    id: String,
+    fname: String,
+    lname: String,
+    email: String,
+    accBal: String,
+    tel: String,
+    clear: String,
+    semCost: String
 }); //Creatinf DB schema for students
 
-var Stud = mong.model('Stud', studSchema); //Creatng DB model for Students
+var Stud = mong.model('students', studSchema); //Creatng DB model for Students
 
 var enqSchema = new mong.Schema({
-    item: String
+    tid: String,
+    sid: String,
+    type: String,
+    enq: String,
+    cdate: String,
+    res: String,
+    rdate: String,
+    status: String,
+    file: String
 }); //Creating DB schema for enquires
 
-var Enq = mong.model('Enq', enqSchema); //Creating DB model for Enquiries
+var Enq = mong.model('enquiries', enqSchema); //Creating DB model for Enquiries
 
 module.exports = function(app) {
+    app.post('/', function() {
 
+    });
 }

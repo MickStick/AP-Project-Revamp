@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    padding: 0;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -9,7 +10,7 @@ header {
     background-color: rgba(89, 171, 227, 0.6);
     border-bottom: 0.5mm solid;
     border-bottom-color: rgba(89, 171, 227, 0.3);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 header h2 {
@@ -19,54 +20,105 @@ header h2 {
 
 body {
     background-color: rgba(197, 239, 247, 0.8);
+    overflow-y: hidden;
 }
 
 .main-view {
     width: 100%;
 }
 
-.main-view form {
+.loginForm {
     width: 500px;
     height: 400px;
     margin: auto;
     position: relative;
     top: 20vh;
-    outline: green dashed;
+    /* outline: green dashed; */
 }
 
-.main-view form>label {
+.loginForm>label {
     font-size: 28px;
     font-weight: 600px;
     text-align: center;
     width: 20%;
     display: block;
     margin: auto;
-    outline: red solid;
+    position: relative;
+    top: 5mm;
+    /* outline: red solid; */
 }
 
-.main-view form table {
+.loginForm table {
     width: 100%;
     margin-top: 30px;
+    border-collapse: separate;
+    border-spacing: 1.5mm 5mm;
 }
 
-.main-view form table tr {
+.loginForm table tr {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 100px !important;
 }
 
-.main-view form table tr td {
-    width: 50%;
-    outline: blue solid;
+.loginForm table tr td:first-of-type {
+    width: 40%;
+    /* outline: blue solid; */
 }
 
-.main-view form table label {
+.loginForm table tr td {
+    width: 60%;
+    /* outline: blue solid; */
+}
+
+.loginForm table label {
     display: block;
-    text-align: center;
-    width: 100%;
-    font-size: 22;
+    text-align: right;
+    width: 50%;
+    font-size: 22px;
+    float: right;
+    position: relative;
+    right: 20px;
 }
 
-.main-view form table input {
+.loginForm table input {
     width: 100%;
-    height: 28px;
+    font-size: 18px;
+    height: 32px;
+    padding: 5px;
+    border: 0.4mm solid;
+    border-color: rgba(89, 171, 227, 0.3);
+}
+
+.loginForm table input:hover {
+    background-color: rgba(228, 241, 254, 0.1);
+}
+
+.loginForm button {
+    float: right;
+    margin-right: 10px;
+    width: 70px;
+    height: 40px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 20px;
+    background-color: rgba(89, 171, 227, 1);
+    transition: background-color 300ms;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.loginForm button:hover {
+    background-color: rgba(228, 241, 254, 0.8);
+    border: 0.5mm solid;
+    border-color: rgba(89, 171, 227, 1);
+    color: rgba(89, 171, 227, 1);
+}
+
+.loginForm button:active {
+    background-color: transparent;
+}
+
+.loginForm button:focus {
+    outline: none;
 }
