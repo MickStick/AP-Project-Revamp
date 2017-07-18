@@ -7,6 +7,16 @@ module.exports = function(app) {
         res.render('index', { title: title });
     });
 
+    app.get('/emp', function(req, res) {
+        var title = 'Employee';
+        res.render('empDash', { title: title });
+    });
+
+    app.get('/stud', function(req, res) {
+        var title = 'Student';
+        res.render('studDash', { title: title });
+    });
+
     app.get('*', function(req, res) {
         res.type('text/plain');
         res.status(404);
