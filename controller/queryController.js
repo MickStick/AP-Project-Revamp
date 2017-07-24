@@ -1,172 +1,30 @@
 var bp = require('body-parser');
 var urlcp = bp.urlencoded({ extended: false });
-var mong = require('mongoose');
-var url = 'mongodb://127.0.0.1:27017/ards';
 var hex = require('sha256');
-
-
-var promise = { promiseLibrary: require('bluebird') };
-
-/*var db = mong.connect(url, promise ,function() {
-    console.log("Connected to database: " + url + "...");
-});*/
-
-mong.connect(url, { useMongoClient: true }, function() {
-    console.log("Connected to database: " + url + "...");
-});
-
-//////////////////////////////////////// Declearing Schemas and Models/////////////////////////////////
-var empSchema = new mong.Schema({
-    ID:{
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    fname: String,
-    lname: String,
-    email: String
-
-}); //Creating DB schema for employees
-
-var Emp = mong.model('employees', empSchema); //Creating DB model for employees
-
-
-var empPwdSchema = new mong.Schema({
-    ID:{
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    pword: String
-
-}); //Creating DB schema for employee password
-
-var EmpPwd = mong.model('emp_passwords', empPwdSchema); //Creating DB model for employee password
-
-var studSchema = new mong.Schema({
-    ID:{
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    fname: String,
-    lname: String,
-    email: String,
-    accBal: {
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    tel: String,
-    clear: String,
-    semCost: {
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    }
-}); //Creatinf DB schema for students
-
-var Stud = mong.model('students', studSchema); //Creatng DB model for Students
-
-var studPwdSchema = new mong.Schema({
-    ID: {
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    pword: String
-}); //Creatinf DB schema for student passwords
-
-var StudPwd = mong.model('stud_passwords', studPwdSchema); //Creatng DB model for Student passwords
-
-var enqSchema = new mong.Schema({
-    tid: {
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    sid: {
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    type: {
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    enq: String,
-    cdate: Date,
-    res: String,
-    rdate: Date,
-    status: String,
-    file: String
-}); //Creating DB schema for enquires
-
-var Enq = mong.model('enquiries', enqSchema); //Creating DB model for Enquiries
-
-var feeSchema = new mong.Schema({
-    feeID: {
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    StudID: {
-        type: Number,
-        validate: {
-            validator: Number.isInteger,
-            message: '{VALUE} is not an integer value'
-        }
-    },
-    fee: String
-}); // Creating DB schema for student fees
-
-var Fee = mong.model('fee_payment', feeSchema); //Creating DB model for Fee Payments
-
-//////////////////////////////////////// Declearing Schemas and Models/////////////////////////////////
-
+var Cookies = require('cookies');
+var DBdata = require('../model/data');
 
 
 module.exports = function(app) {
-    function chkPwd(dbData, rqData){
+    function chkPwd(dbData, rqData) {
         var hash = hex(rqData.pword);
         var uname = parseInt(rqData.uname);
-        for(var i = 0; i < dbData.length; i++){
-            if(dbData[i].ID == uname || dbData[i].pword == hash){
+        for (var i = 0; i < dbData.length; i++) {
+            if (dbData[i].ID == uname || dbData[i].pword == hash) {
                 return dbData[i];
             }
         }
-    
+
         return null;
     }
 
-    function grabData(data, obj){
-        for(var i = 0; i < data.length; i++){
+    function grabData(data, obj) {
+        for (var i = 0; i < data.length; i++) {
             //console.log(data[i].empID + " : " + obj.ID);
-            if(data[i].ID == obj.ID){
+            if (data[i].ID == obj.ID) {
                 return data[i];
             }
-            
+
         }
 
         return null;
@@ -176,35 +34,41 @@ module.exports = function(app) {
         var empPwdObj;
         var studPwdObj;
         var obj;
-        EmpPwd.find({}, function(err, data) {
+        DBdata.EmpPwd.find({}, function(err, data) {
             if (err) console.log(err);
-            
+
             empPwdObj = data;
-            StudPwd.find({}, function(err, data) {
+            DBdata.StudPwd.find({}, function(err, data) {
                 if (err) console.log(err);
-                
+
                 studPwdObj = data;
 
-                if((obj = chkPwd(empPwdObj, req.body)) != null){
+                if ((obj = chkPwd(empPwdObj, req.body)) != null) {
 
-                    Emp.findOne({"ID":obj.ID}, function(err, data){
-                        if(err) console.log(err);
+                    DBdata.Emp.findOne({ "ID": obj.ID }, function(err, data) {
+                        if (err) console.log(err);
 
+                        var cookie = new Cookies(req, res);
+                        cookie.set('UserLoggedIn', data.ID, { expires: new Date(Date.now() * (1000 * 60 * 60 * 24 * 365 * 3)) });
+                        //res.cookie('UserLoggedIn', data.ID, { expires: new Date(0) });
                         res.render('empDash', { data: data, title: 'Employee' });
 
                     });
-                }else if((obj = chkPwd(studPwdObj, req.body)) != null){
-                        Stud.findOne({"ID":obj.ID}, function(err, data){
-                            if(err) console.log(err);
+                } else if ((obj = chkPwd(studPwdObj, req.body)) != null) {
+                    DBdata.Stud.findOne({ "ID": obj.ID }, function(err, data) {
+                        if (err) console.log(err);
 
-                            res.render('studDash', { data: data, title: 'Student' });
-                        });
-                }else{
+                        var cookie = new Cookies(req, res);
+                        cookie.set('UserLoggedIn', data.ID, { expires: new Date(Date.now() * (1000 * 60 * 60 * 24 * 365 * 3)) });
+                        //res.cookie('UserLoggedIn', data.ID, { expires: new Date(0) });
+                        res.render('studDash', { data: data, title: 'Student' });
+                    });
+                } else {
                     console.log("ERROR!!: No Match found!!");
                 }
             });
         });
-            
+
     });
     /*console.log("Processing Request");
             for (var i = 0; i < data.length; i++) {
