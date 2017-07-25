@@ -11,7 +11,7 @@ module.exports = function(app) {
 
             //obj = data;
             if (emp != null) {
-                console.log(emp.ID);
+                //console.log(emp.ID);
                 var obj = {
                     dom: 'Employee',
                     data: emp
@@ -22,7 +22,7 @@ module.exports = function(app) {
                     if (err) console.log(err);
 
                     if (stud != null) {
-                        console.log(stud.ID);
+                        //console.log(stud.ID);
                         var obj = {
                             dom: 'Student',
                             data: stud
@@ -59,7 +59,7 @@ module.exports = function(app) {
 
             /**/
         } else {
-            console.log("No cookies have been saved");
+            console.log("No user login info found");
             res.render('index', { title: title });
         }
 

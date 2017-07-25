@@ -29,6 +29,66 @@ body {
     width: 100%;
 }
 
+#user-pp {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    float: right;
+    margin: 0.5mm 10mm 0mm 0mm;
+    cursor: pointer
+}
+
+#user {
+    float: right;
+    clear: both;
+    font-size: 80%;
+    font-weight: 600;
+    margin: -3.5mm 5.5mm 0mm 0mm;
+    cursor: pointer
+}
+
+.emp-nav {
+    float: right;
+    list-style-type: none;
+    margin-right: 15mm;
+}
+
+.emp-nav li {
+    display: inline;
+}
+
+.emp-nav li button {
+    background: transparent;
+    border: none;
+    height: 100%;
+    width: 24mm;
+    cursor: pointer;
+}
+
+.emp-nav li button:hover {
+    background: rgba(92, 178, 231, 0.7);
+}
+
+.emp-nav li button:active {
+    background: rgba(92, 178, 231, 0.4);
+}
+
+.emp-nav li button:focus {
+    outline: none;
+}
+
+.emp-nav li button svg {
+    width: 26mm;
+    height: 8vh;
+    fill: rgba(108, 122, 137, 0.6);
+}
+
+.user-info-container {
+    float: right;
+    clear: right;
+    list-style-type: none;
+}
+
 
 /*/////////////////////////////////////// Main Styles /////////////////////////// bottom///*/
 

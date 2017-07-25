@@ -23,7 +23,8 @@ var empSchema = new mong.Schema({
     },
     fname: String,
     lname: String,
-    email: String
+    email: String,
+    proPic: String
 
 }); //Creating DB schema for employees
 
@@ -71,7 +72,8 @@ var studSchema = new mong.Schema({
             validator: Number.isInteger,
             message: '{VALUE} is not an integer value'
         }
-    }
+    },
+    porPic: String
 }); //Creatinf DB schema for students
 
 var Stud = mong.model('students', studSchema); //Creatng DB model for Students

@@ -49,8 +49,8 @@ module.exports = function(app) {
                         if (err) console.log(err);
 
                         var cookie = new Cookies(req, res);
-                        cookie.set('UserLoggedIn', data.ID, { expires: new Date(Date.now() * (1000 * 60 * 60 * 24 * 365 * 3)) });
-                        //res.cookie('UserLoggedIn', data.ID, { expires: new Date(0) });
+                        cookie.set('UserLoggedIn', data.ID, { maxAge: new Date(Date.now() * (1000 * 60 * 60 * 24 * 365 * 3)) });
+                        //res.cookie('UserLoggedIn', data.ID, { expires: new Date(Date.now() * (1000 * 60 * 60 * 24 * 365 * 3)) });
                         res.render('empDash', { data: data, title: 'Employee' });
 
                     });
@@ -59,8 +59,8 @@ module.exports = function(app) {
                         if (err) console.log(err);
 
                         var cookie = new Cookies(req, res);
-                        cookie.set('UserLoggedIn', data.ID, { expires: new Date(Date.now() * (1000 * 60 * 60 * 24 * 365 * 3)) });
-                        //res.cookie('UserLoggedIn', data.ID, { expires: new Date(0) });
+                        cookie.set('UserLoggedIn', data.ID, { maxAge: new Date(Date.now() * (1000 * 60 * 60 * 24 * 365 * 3)) });
+                        //res.cookie('UserLoggedIn', data.ID, { expires: new Date(Date.now() * (1000 * 60 * 60 * 24 * 365 * 3)) });
                         res.render('studDash', { data: data, title: 'Student' });
                     });
                 } else {
