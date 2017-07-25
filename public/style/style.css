@@ -8,11 +8,11 @@
 
 header {
     width: 100%;
-    height: 10vh;
+    height: 18mm;
     background-color: rgba(89, 171, 227, 0.6);
     border-bottom: 0.5mm solid;
     border-bottom-color: rgba(89, 171, 227, 0.3);
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+    /*box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);*/
 }
 
 header h2 {
@@ -23,10 +23,14 @@ header h2 {
 body {
     background-color: rgba(197, 239, 247, 0.8);
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .main-view {
     width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 #user-pp {
@@ -84,9 +88,32 @@ body {
 }
 
 .user-info-container {
+    height: auto;
+    padding: 2mm 2mm !important;
+    margin: -0.2mm 0mm 0mm 0mm !important;
     float: right;
-    clear: right;
+    clear: both;
     list-style-type: none;
+    display: none;
+    /*background: rgba(120, 190, 235, 0.6);
+    border-color: rgba(120, 190, 235, 0.6);
+    box-shadow: 0px 3px 10px rgba(0, 0, 2, 0.3);*/
+}
+
+.user-info-container>li {
+    margin: 0mm 0mm 2mm 0mm !important;
+}
+
+.user-info-container>li>a {
+    color: #000;
+    text-decoration: none;
+}
+
+.user-info-container>li>button {
+    background: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 
@@ -205,3 +232,51 @@ body {
 
 
 /*/////////////////////////////////////// Stud Dashboard Styles /////////////////////////// bottom///*/
+
+
+/*/////////////////////////////////////// Dynamic Element Styles ///////////////////////////// top///*/
+
+
+/*/////////////////////////////////////// Internal Pane Styles ///////////////////////////// top///*/
+
+.InternalPaneContainer {
+   /* width: 300px;
+    height: 400px;*/
+    border: 0.5mm solid;
+    border-radius: 1px;
+    float: left;
+}
+
+.InternalPaneTabBar {
+    width: 100%;
+    height: 25px;
+    border-bottom: 1px solid;    
+    background: pink;
+}
+
+.InternalPaneTabBar > label{
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.TabBarClose{
+    float: right;
+    margin: 2.75px 5px 0px 0px;
+}
+
+.TabBarClose > i{
+    font-size: 15px !important;
+}
+
+.InternalPaneBody {
+    width: 100%;
+    /*height: 374px;*/
+    background: rgba(23, 134, 189, 0.6);
+    z-index: 3;
+}
+
+
+/*/////////////////////////////////////// Internal Pane Styles /////////////////////////// bottom///*/
+
+
+/*/////////////////////////////////////// Dynamic Element Styles /////////////////////////// bottom///*/
