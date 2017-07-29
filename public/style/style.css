@@ -285,11 +285,53 @@ body {
 
 /*/////////////////////////////////////// Enquiry Pane Styles ///////////////////////////// top///*/
 
-.Enq-Sud-Table {
+.StudUpdaterWrapper {
     float: left;
     width: 35%;
+    height: 100%;
+}
+
+.StudSearchContainer {
+    width: 100%;
+    height: 7%;
+}
+
+.StudSearchContainer>input,
+.StudSearchContainer>button {
+    float: left;
+    margin-left: 2mm;
+    margin-top: 1.5mm;
+    height: 75%;
+    border: 1px solid;
+    border-radius: 2px;
+    background: 'ghostwhite';
+}
+
+.StudSearchContainer>input {
+    font-size: 16px;
+    width: 75%;
+    padding: 0mm 2.5mm;
+}
+
+.StudSearchContainer>button {
+    width: 15%;
+}
+
+.StudSearchContainer>button>i {
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.StudUpdaterContainer {
+    width: 100%;
+    height: 78%;
+    padding: 10mm 0mm;
+}
+
+.Enq-Sud-Table {
+    float: left;
+    width: 100%;
     height: auto;
-    padding: 5mm;
 }
 
 .Enq-Stud-Table>tr>td>input[type=text] {
@@ -297,13 +339,88 @@ body {
     text-align: left;
     background: none;
     border: none;
-    padding: 0mm 5mm;
+    padding: 0mm 0mm 0mm 10mm;
     font-size: 18px;
     margin-bottom: 4mm;
 }
 
 .Enq-Stud-Table>tr>td>input:focus {
     outline: none;
+}
+
+#updateStud {
+    float: right;
+    margin-right: 2mm;
+    border: 1px solid;
+    border-radius: 2px;
+    background: 'ghostwhite';
+    padding: 1mm;
+}
+
+.EnquiryViewWrapper {
+    float: left;
+    width: 64.65%;
+    height: 100%;
+    border-left: 0.5mm solid;
+}
+
+.EnquirySearchContainer {
+    width: 100%;
+    height: 7%;
+}
+
+.EnquiryViewContainer {
+    border-top: 0.5mm solid;
+    width: 100%;
+}
+
+#SearchEnquiry,
+#SearchEnqBtn {
+    float: left;
+    margin-left: 2mm;
+    margin-top: 1.5mm;
+    height: 75%;
+    border: 1px solid;
+    border-radius: 2px;
+    background: 'ghostwhite';
+}
+
+#SearchEnquiry {
+    width: 40%;
+}
+
+#SearchEnqBtn {
+    width: 10%;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.EnquiryContainer {
+    width: 99%;
+    height: solid;
+    padding: 2mm 1mm;
+    border-bottom: 0.5mm solid;
+    font-size: 14px;
+}
+
+#query{
+    height: 16px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#subject {}
+
+#Qsender {}
+
+#Qdate {
+    float: right;
+    margin-top: -16px;
+    margin-right: 2mm;
+}
+
+#Qfile {
+    cursor: pointer;
 }
 
 
