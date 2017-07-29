@@ -6,7 +6,7 @@ $(document).ready(function() {
     //var DOMParent = document.getElementsByClassName("main-view")[0];
 
     //Decalring Internal Views
-    var EnquiryPane = null; 
+    var EnquiryPane = null;
     var ChatPane = null;
     var ReplyPane = null;
 
@@ -15,44 +15,46 @@ $(document).ready(function() {
     //Creates the Intrnal Pane/Frame
     function initInternalPane(title, width, height) {
         //var InternalPaneContainer = document.createElement('div');
-        var InternalPaneContainer = $("<div></div>");//Declaring the main container of the Internal frame
+        var InternalPaneContainer = $("<div></div>"); //Declaring the main container of the Internal frame
         //var InternalPaneTabBar = document.createElement('div');
-        var InternalPaneTabBar = $("<div></div>");//Declaring Tab bar for the frame
-        InternalPaneTabBar.on('mousedown', function(e) {//Pushing the specific frame to the front of all other frames
+        var InternalPaneTabBar = $("<div></div>"); //Declaring Tab bar for the frame
+        InternalPaneTabBar.on('mousedown', function(e) { //Pushing the specific frame to the front of all other frames
             Parent.children().css({ "z-index": "1" });
             $(this).parent().css({ "z-index": "3" });
         });
         // var InternalPaneBody = document.createElement('div');
-        var InternalPaneBody = $("<div></div>");//Declaring the body of the frame
+        var InternalPaneBody = $("<div></div>"); //Declaring the body of the frame
 
         //var TabBarTitle = document.createElement('label');
-        var TabBarTitle = $("<label></label>");//Declaring the title of the frame
-        TabBarTitle.text(title);//Setting title
-        var closeBtn = $("<button><i class=\"material-icosn\">close</i></button>");//The Close button
+        var TabBarTitle = $("<label></label>"); //Declaring the title of the frame
+        TabBarTitle.text(title); //Setting title
+        var closeBtn = $("<button><i class=\"material-icons\">close</i></button>"); //The Close button
 
         closeBtn.on('click', function(e) {
             InternalPaneContainer.remove();
         });
         closeBtn.addClass("TabBarClose");
-        InternalPaneTabBar.append(TabBarTitle);                     //
-        InternalPaneTabBar.append(closeBtn);                        //
-        InternalPaneContainer.append(InternalPaneTabBar);           //Adding elements to their specific parent elements
-        InternalPaneContainer.append(InternalPaneBody);             //
+        InternalPaneTabBar.append(TabBarTitle); //
+        InternalPaneTabBar.append(closeBtn); //
+        InternalPaneContainer.append(InternalPaneTabBar); //Adding elements to their specific parent elements
+        InternalPaneContainer.append(InternalPaneBody); //
         InternalPaneContainer.addClass("InternalPaneContainer");
         InternalPaneBody.addClass("InternalPaneBody");
         InternalPaneTabBar.addClass("InternalPaneTabBar");
         //Allowing the Internal Frame to be draggable
-        InternalPaneContainer.draggable({ cancel: '.InternalPaneContainer > .InternalPaneBody , .InternalPaneContainer > .InternalPaneTabBar > .TabBarClose'/*Sets That the body and close buttons can't be used to drag the frame*/, 
-        containment: Parent });//Sets that the fram can only be draggable around in the Parent main
+        InternalPaneContainer.draggable({
+            cancel: '.InternalPaneContainer > .InternalPaneBody , .InternalPaneContainer > .InternalPaneTabBar > .TabBarClose' /*Sets That the body and close buttons can't be used to drag the frame*/ ,
+            containment: Parent
+        }); //Sets that the fram can only be draggable around in the Parent main
 
         if (width == null || width == "") {
             InternalPaneContainer.css({ "width": "300px" });
         } else {
-            InternalPaneContainer.css({ "width": "" + width + "px" });                      //
-        }                                                                                   //Setting the width and height of
-        if (height == null || height == "") {                                               //the Inetrnal Frame Container
-            InternalPaneContainer.css({ "height": "400px" });                               //and the body
-            InternalPaneBody.css({ "height": "374px" });                                    //
+            InternalPaneContainer.css({ "width": "" + width + "px" }); //
+        } //Setting the width and height of
+        if (height == null || height == "") { //the Inetrnal Frame Container
+            InternalPaneContainer.css({ "height": "400px" }); //and the body
+            InternalPaneBody.css({ "height": "374px" }); //
         } else {
             InternalPaneContainer.css({ "height": "" + height + "px" });
             InternalPaneBody.css({ "height": "" + (height - 26) + "px" });
@@ -62,26 +64,26 @@ $(document).ready(function() {
     }
 
     //Creates the Element that holds all the necessary parts of the query
-    function createEnquiry(query, subject, sender, date, file){ 
+    function createEnquiry(query, subject, sender, date, file) {
         var EnquiryContainer = $("<div class=\"EnquiryContainer\"></div>");
         var Query = $("<p id=\"query\"></p>");
         var Subject = $("<p id=\"subject\"></p>");
         var Sender = $("<p id=\"Qsender\"></p>");
         var Qdate = $("<p id=\"Qdate\"></p>");
-        var QFile = $("<p id=\"QFile\"></p>");  
+        var QFile = $("<p id=\"QFile\"></p>");
         Query.text(query);
-        Query.on("click", function(){
-            if(Query.css("height") == "16px"){
-                Query.animate({ height: Query.get(0).scrollHeight});        //
-            }else{                                                          //Allows viewing of the query in full using a click
-                Query.animate({ height:"16px"});                            //
+        Query.on("click", function() {
+            if (Query.css("height") == "16px") {
+                Query.animate({ height: Query.get(0).scrollHeight }); //
+            } else { //Allows viewing of the query in full using a click
+                Query.animate({ height: "16px" }); //
             }
-            
+
         });
         Subject.text(subject);
         Sender.text(sender);
         Qdate.text(date.toDateString()); //Saving the date as a string
-        QFile.text(file);  
+        QFile.text(file);
         EnquiryContainer.append(Sender);
         EnquiryContainer.append(Qdate);
         EnquiryContainer.append(Subject);
@@ -127,10 +129,10 @@ $(document).ready(function() {
         ////////////////////////// Viewer /////////////////////////
         var EnquiryViewContainer = $("<div class=\"EnquiryViewContainer\"></div>");
         var d = new Date();
-        var EnquiryContainer = createEnquiry("This is a query. A query retreived from the database would be held here." 
-                                            +"Just adding extra text so to test out the \"text wrap\". "
-                                            +"So ummm..... Idk what else to add to this really but I kinda need it to be longer."
-                                            +" Yeah good enough now. Bye.","Test Query","4004040",d,"File Here");
+        var EnquiryContainer = createEnquiry("This is a query. A query retreived from the database would be held here." +
+            "Just adding extra text so to test out the \"text wrap\". " +
+            "So ummm..... Idk what else to add to this really but I kinda need it to be longer." +
+            " Yeah good enough now. Bye.", "Test Query", "4004040", d, "File Here");
         /*if(!EnquiryViewContainer.has(EnquiryContainer).length){
             alert("empty"); 
         }else{
@@ -138,16 +140,16 @@ $(document).ready(function() {
         }*/
         EnquiryViewContainer.append(EnquiryContainer);
         ////////////////////////// Viewer /////////////////////////  
-        
+
         /////////////////////// Enquiry Search ////////////////////// 
         var EnquirySearchContainer = $("<div class=\"EnquirySearchContainer\"></div>");
-        var SearchEnquiry = $("<select id=\"SearchEnquiry\" placeholder=\"Enquiry Options\">"
-                                    +"<option>Refunds</option>"
-                                    +"<option>Financial Clearance</option>"
-                                    +"<option>Semester Fee Statement</option>"
-                                    +"<option>Monies Owed</option>"
-                                    +"<option>Account Balance</option>"
-                            +"</select>");
+        var SearchEnquiry = $("<select id=\"SearchEnquiry\" placeholder=\"Enquiry Options\">" +
+            "<option>Refunds</option>" +
+            "<option>Financial Clearance</option>" +
+            "<option>Semester Fee Statement</option>" +
+            "<option>Monies Owed</option>" +
+            "<option>Account Balance</option>" +
+            "</select>");
         var SearchEnqBtn = $("<button id=\"SearchEnqBtn\"><i class=\"material-icons\">play_arrow</i></button>");
         EnquirySearchContainer.append(SearchEnquiry).append(SearchEnqBtn);
         /////////////////////// Enquiry Search //////////////////////
@@ -169,7 +171,7 @@ $(document).ready(function() {
 
     }
 
-//////////////////////////////////////////////////////// Header Buttons Event Handlers ///////////////////////////////////////////
+    //////////////////////////////////////////////////////// Header Buttons Event Handlers ///////////////////////////////////////////
     $('#enqBtn').on('click', function(e) {
         if (!Parent.has(EnquiryPane).length) {
             EnquiryPane = initEnquiryPane("Enquiry Pane", 700, 575);
@@ -197,7 +199,7 @@ $(document).ready(function() {
         }
     });
 
-//////////////////////////////////////////////////////// Header Buttons Event Handlers ///////////////////////////////////////////
+    //////////////////////////////////////////////////////// Header Buttons Event Handlers ///////////////////////////////////////////
 
 
     /////////////////////////// Intern Frame Declaration/Desing ///////////////////////
